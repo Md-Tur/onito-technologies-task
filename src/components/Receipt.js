@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Receipt = () => {
+
+    const [date, setDate] = useState('');
+    const [amount, setAmount] = useState('');
+    const [paymentMode, setPaymentMode] = useState('');
+    const [remark, setRemark] = useState('');
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        setDate(e.target.date.value);
+        setAmount(e.target.amount.value);
+        setPaymentMode(e.target.date.value);
+        setRemark(e.target.remark.value);
+        e.target.reset();
+    }
+
     return (
         <div className='container bg-secondary bg-opacity-10 p-5'>
             <h2 className='text-start mb-3'> <u>Receipt Details</u> </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="row mb-3">
                     <label htmlFor="date" className="col-sm-2 col-form-label text-start">Date<span className='text-danger'>*</span></label>
                     <div className="col-sm-3">
