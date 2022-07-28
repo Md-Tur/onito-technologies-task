@@ -43,6 +43,24 @@ const Receipt = () => {
                 </div>
             </form>
 
+            <table className="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Payment Mode</th>
+                        <th scope="col">Remark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };
