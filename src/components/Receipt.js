@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Receipt = () => {
     return (
@@ -35,6 +36,11 @@ const Receipt = () => {
                     </div>
                 </div>
 
+                <div className='d-flex justify-content-end'>
+                    <Link to='' className="btn btn-outline-danger px-5 py-3">CANCEL <br /> <small> <u>(ESC)</u> </small> </Link>
+
+                    <button type="submit" className="btn btn-outline-success ms-5 me-5 px-5 py-3">SUBMIT <br /> <small> <u>(% S)</u> </small> </button>
+                </div>
             </form>
 
         </div>
