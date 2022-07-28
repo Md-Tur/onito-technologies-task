@@ -37,7 +37,7 @@ const Receipt = () => {
                     <label htmlFor="paymentMode" className="col-sm-2 col-form-label text-start">Payment Mode<span className='text-danger'>*</span></label>
                     <div className="col-sm-6">
                         <select className="form-select border border-2" aria-label="Default select example" name='paymentMode' required>
-                            <option>Select here</option>
+                            <option value=''>Select here</option>
                             <option value="Cash">Cash</option>
                             <option value="Debit">Debit</option>
                             <option value="Online Pay">Online Pay</option>
