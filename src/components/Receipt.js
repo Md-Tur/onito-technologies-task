@@ -12,7 +12,7 @@ const Receipt = () => {
         e.preventDefault();
         setDate(e.target.date.value);
         setAmount(e.target.amount.value);
-        setPaymentMode(e.target.date.value);
+        setPaymentMode(e.target.paymentMode.value);
         setRemark(e.target.remark.value);
         e.target.reset();
     }
@@ -36,7 +36,7 @@ const Receipt = () => {
                 <div className="row mb-3">
                     <label htmlFor="paymentMode" className="col-sm-2 col-form-label text-start">Payment Mode<span className='text-danger'>*</span></label>
                     <div className="col-sm-6">
-                        <select className="form-select border border-2" aria-label="Default select example" name='paymentMode'>
+                        <select className="form-select border border-2" aria-label="Default select example" name='paymentMode' required>
                             <option>Select here</option>
                             <option value="Cash">Cash</option>
                             <option value="Debit">Debit</option>
@@ -69,10 +69,10 @@ const Receipt = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th>{date}</th>
+                        <td>{amount}</td>
+                        <td>{paymentMode}</td>
+                        <td>{remark}</td>
                     </tr>
                 </tbody>
             </table>
