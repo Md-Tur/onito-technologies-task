@@ -8,14 +8,22 @@ const Receipt = () => {
     const [paymentMode, setPaymentMode] = useState('');
     const [remark, setRemark] = useState('');
 
+    const [singleArray, setSingleArray] = useState([]);
+    const [multipleArray, setMultipleArray] = useState([]);
+
     const handleSubmit = e => {
         e.preventDefault();
         setDate(e.target.date.value);
         setAmount(e.target.amount.value);
         setPaymentMode(e.target.paymentMode.value);
         setRemark(e.target.remark.value);
+        singleArray.push(e.target.date.value, e.target.amount.value, e.target.paymentMode.value, e.target.remark.value);
         e.target.reset();
     }
+
+    multipleArray.push(...singleArray);
+    const newArr = [];
+    while (multipleArray.length) newArr.push(multipleArray.splice(0, 4));
 
     return (
         <div className='container bg-secondary bg-opacity-10 p-5'>
@@ -40,7 +48,7 @@ const Receipt = () => {
                             <option value=''>Select here</option>
                             <option value="Cash">Cash</option>
                             <option value="Debit">Debit</option>
-                            <option value="Online Pay">Online Pay</option>
+                            <option value="Paytm">Paytm</option>
                         </select>
                     </div>
                 </div>
@@ -68,12 +76,18 @@ const Receipt = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>{date}</th>
-                        <td>{amount}</td>
-                        <td>{paymentMode}</td>
-                        <td>{remark}</td>
-                    </tr>
+                    {
+                        newArr.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td key={item[0]}>{item[0]}</td>
+                                    <td key={item[1]}>{item[1]}</td>
+                                    <td key={item[2]}>{item[2]}</td>
+                                    <td key={item[3]}>{item[3]}</td>
+                                </tr>
+                            );
+                        })
+                    }
                 </tbody>
             </table>
         </div>
